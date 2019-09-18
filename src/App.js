@@ -16,7 +16,7 @@ function App() {
   const classes = useStyles()
   return (
     <div>
-      <h1>Header menu</h1>
+      <h1>Header menu (React with Redux)</h1>
       <Link className={classes.link} to="/">
         home_
       </Link>
