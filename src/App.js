@@ -1,10 +1,11 @@
 import 'react-app-polyfill/ie11'
 import React from 'react'
-import { Route, Switch, Link } from 'react-router-dom'
+import { Switch, Link } from 'react-router-dom'
 
 import { makeStyles } from '@material-ui/core/styles'
-import Home from './pages'
-import About from './pages/about'
+import FancyRoute from './components/FancyRoute'
+
+import routes from './lib/routes'
 
 const useStyles = makeStyles(theme => ({
   link: {
@@ -25,8 +26,9 @@ function App() {
       </Link>
 
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
+        {routes.map((route, i) => (
+          <FancyRoute key={i} {...route} />
+        ))}
       </Switch>
     </div>
   )
