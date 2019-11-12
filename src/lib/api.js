@@ -17,6 +17,11 @@ class API {
     return data['token']
   }
 
+  isLoggedIn() {
+    const data = parseCookies(this.ctx)
+    return data['token']
+  }
+
   getUserPosts(idUser) {
     return this.fetch(`/posts?userId=${idUser}`, {
       method: 'GET',

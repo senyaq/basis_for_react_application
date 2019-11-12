@@ -1,5 +1,6 @@
 import Home from '../pages'
 import About from '../pages/about'
+import SignIn from '../pages/sign_In'
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     title: 'About',
     path: '/about',
     component: About,
+  },
+  {
+    title: 'SignIn',
+    path: '/sign_in',
+    component: SignIn,
   },
 ]
 

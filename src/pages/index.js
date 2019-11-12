@@ -1,5 +1,9 @@
-import React, { useEffect, useState, Fragment } from 'react'
-import api from './../lib//api'
+import React, { useEffect, useState, Suspense } from 'react'
+
+// import withAuth from './../lib/withAuth'
+import api from './../lib/api'
+
+const OtherComponent = React.lazy(() => import('../partials/OtherComponent'))
 
 function Home() {
   const [posts, setPosts] = useState([])
@@ -9,12 +13,14 @@ function Home() {
   }, [setPosts])
 
   return (
-    <Fragment>
+    <>
       <h1>Home</h1>
-      {posts.length < 1 && <h3>Loading ...</h3>}
-      <ul>{posts.length > 0 && posts.map(item => <li key={`${item.id}`}>{item.title}</li>)}</ul>
-    </Fragment>
+      <Suspense fallback={<div>Loading2...</div>}>
+        <OtherComponent posts={posts} />
+      </Suspense>
+    </>
   )
 }
 
+// export default withAuth(Home)
 export default Home
